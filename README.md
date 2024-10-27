@@ -135,14 +135,9 @@ You can run the entire application (frontend and backend) locally using Docker.
    cd Resourcify
    ```
 
-2. **Build the Docker image:**
+2. **Build the Docker image & run it locally:**
    ```bash
-   docker build -t resourcify-app .
-   ```
-
-3. **Run the Docker container:**
-   ```bash
-   docker run -p 3000:3000 -p 5173:5173 --env-file ./backend/.env resourcify-app
+   docker compose up --build
    ```
 
 This will start both the backend (on port 3000) and frontend (on port 5173) within the same container.
