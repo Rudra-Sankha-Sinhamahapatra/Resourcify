@@ -9,7 +9,7 @@ services:
     ports:
       - '3000:3000'
     environment:
-      - MONGODB_URL=mongodb://root:example@mongo:27017/
+      - MONGODB_URL=mongodb://root:example@mongo:27017/my_database?authSource=admin
       - ADMIN_SECRET=secret
       - JWT_SECRET=secret
       - ADMIN_PASSWORD=secret
@@ -40,10 +40,12 @@ services:
     image: mongo:latest
     restart: always
     ports:
-      - '27017:27017'  # Change this to 27017 to match the default MongoDB port
+      - '8081:8081'
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
+      ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27017/
+      ME_CONFIG_BASICAUTH: false
     volumes:
       - mongo-data:/data/db
 
