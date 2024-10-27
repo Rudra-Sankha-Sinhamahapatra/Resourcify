@@ -129,6 +129,7 @@ Organizations often struggle with inefficient resource management, leading to de
 You can run the entire application (frontend and backend) locally using Docker.
 
 ### **Build and Run Docker Image:**
+- on a special note if you are using docker for local setup then remove the .env and node_modules from your local device otherwise docker run may fail 
 
 1. **Navigate to the project root directory:**
    ```bash
