@@ -1,0 +1,16 @@
+name: Ping URL Cron Job
+
+on:
+  schedule:
+    # Runs every 15 minutes
+    - cron: '*/15 * * * *'
+
+jobs:
+  ping_url:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping URL
+        env:
+          BACKEND_URL: ${{ secrets.BACKEND_URL }}
+        run: |
+          curl -s -o /dev/null -w "%{http_code}" "$BACKEND_URL"
